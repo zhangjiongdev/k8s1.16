@@ -8,7 +8,7 @@ source /etc/profile
 
 设置私有registry镜像地址（当网络无法访问公共镜像的时候）
 ```
-export privateregistry=haproxy:5000
+export privateregistry=haproxy:6000
 ```
 
 修改 docker pull 配置
