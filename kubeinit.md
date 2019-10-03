@@ -15,7 +15,6 @@ export privateregistry=haproxy:6000
 ```
 cat > /etc/docker/daemon.json << EOF
 {
-    "exec-opts": ["native.cgroupdriver=systemd"],
     "bip": "172.31.0.1/16",
     "insecure-registries": [
         "$privateregistry"
@@ -105,7 +104,12 @@ yum install -y kubelet kubeadm kubectl
 
 
 echo  'Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=cgroupfs"' >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+
 sed -i "s/=/=--fail-swap-on=false/g" /etc/sysconfig/kubelet
 systemctl enable kubelet && systemctl start kubelet && systemctl status kubelet
+
+
+
+
 
 ```

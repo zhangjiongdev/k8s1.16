@@ -38,6 +38,9 @@ curl -O https://docs.projectcalico.org/v3.8/manifests/calico.yaml
 ```
 
 ```
+https://github.com/zhangjiongdev/k8s1.16/blob/master/kubeadm-init.yaml
+vi kubeadm-init.yaml
+
 kubeadm init --config kubeadm-init.yaml
 ```
 
