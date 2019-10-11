@@ -44,7 +44,8 @@ scp root@master1:$HOME/.kube/config $HOME/.kube/config
 
 
 ```
-kubeadm token create --print-join-command
+cmd=`kubeadm token create --print-join-command`
+cmdstr=" --control-plane"
+echo $cmd$cmdstr
 
---control-plane
 ```
