@@ -42,7 +42,7 @@ mkdir -p $HOME/.kube
 scp root@master1:$HOME/.kube/config $HOME/.kube/config
 ```
 
-
+生成加入集群的命令行
 ```
 cmd=`kubeadm token create --print-join-command`
 cmdstr=" --control-plane"
