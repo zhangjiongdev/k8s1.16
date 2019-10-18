@@ -1,0 +1,5 @@
+openssl genrsa -out ca.key 2048
+
+openssl req -x509 -new -nodes -key ca.key -subj "/CN=etcd-ca" -set_serial 0 -out ca.crt -config a.conf
+
+openssl x509 -in ca.crt -text -noout
