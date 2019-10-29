@@ -13,3 +13,41 @@ openssl req -new -key server.key -subj "/CN=master1b" -out server.csr
 openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 3650 -set_serial 3728140570082248214  -extensions v3_ext -extfile csr.conf
 
 openssl x509 -in server.crt -text -noout
+
+
+
+          image: calico/cni:v3.8.4
+          image: calico/cni:v3.8.4
+          image: calico/pod2daemon-flexvol:v3.8.4
+          image: calico/node:v3.8.4
+          image: calico/kube-controllers:v3.8.4
+
+
+docker tag calico/cni:v3.8.4 localhost:5000/calico/cni:v3.8.4
+docker tag calico/pod2daemon-flexvol:v3.8.4 localhost:5000/calico/pod2daemon-flexvol:v3.8.4
+docker tag calico/node:v3.8.4 localhost:5000/calico/node:v3.8.4
+docker tag calico/kube-controllers:v3.8.4 localhost:5000/calico/kube-controllers:v3.8.4
+
+
+
+docker push localhost:5000/calico/cni:v3.8.4
+docker push localhost:5000/calico/pod2daemon-flexvol:v3.8.4
+docker push localhost:5000/calico/node:v3.8.4
+docker push localhost:5000/calico/kube-controllers:v3.8.4
+
+
+
+
+
+
+
+docker pull 34.217.147.77:5000/calico/cni:v3.8.4
+docker pull 34.217.147.77:5000/calico/pod2daemon-flexvol:v3.8.4
+docker pull 34.217.147.77:5000/calico/node:v3.8.4
+docker pull 34.217.147.77:5000/calico/kube-controllers:v3.8.4
+
+
+
+
+
+

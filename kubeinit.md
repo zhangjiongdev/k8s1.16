@@ -1,3 +1,7 @@
+```
+yum install -y git
+```
+
 关闭swap
 ```
 swapoff -a
@@ -98,11 +102,12 @@ gpgcheck=0
 repo_gpgcheck=0
 gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
-
+```
+```
 yum makecache fast
 yum install -y kubelet kubeadm kubectl
-
-
+```
+```
 echo  'Environment="KUBELET_CGROUP_ARGS=--cgroup-driver=cgroupfs"' >> /usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf
 
 sed -i "s/=/=--fail-swap-on=false/g" /etc/sysconfig/kubelet
@@ -110,6 +115,15 @@ systemctl enable kubelet && systemctl start kubelet && systemctl status kubelet
 
 
 
+git clone https://github.com/zhangjiongdev/kubeadm116.git
+
+mv /usr/bin/kubeadm /usr/bin/kubeadm_bak
+
+mv kubeadm116/kubeadm /usr/bin/kubeadm
+chmod +x /usr/bin/kubeadm
+
+mv kubeadm116/calico.yaml calico.yaml
+mv kubeadm116/kubeadm-init.yaml kubeadm-init.yaml
 
 
 ```
